@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- This tells the browser what type of document this is -->
+  <meta charset="UTF-8" />
+
+  <!-- This helps the page fit properly on different screen sizes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Title shown on the browser tab -->
+  <title>UrbanFit Member Engagement Dashboard</title>
+
+  <!-- Google font connection for better loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- This imports the Inter font from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- This connects the HTML page to the CSS file -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Main wrapper for the whole dashboard -->
+  <div class="page-shell">
+
+    <!-- Top heading section of the dashboard -->
+    <header class="hero">
+      <div>
+        <!-- Small subject line above main heading -->
+        <p class="eyebrow">BBUS 4105 · Presenting Data</p>
+
+        <!-- Main dashboard title -->
+        <h1>UrbanFit Member Engagement Dashboard</h1>
+
+        <!-- Short explanation of what the dashboard is about -->
+        <p class="subtitle">
+          Interactive D3.js dashboard presenting movement patterns, member behaviour,
+          and class participation trends across UrbanFit locations.
+        </p>
+      </div>
+
+      <!-- Small side box explaining the purpose of the dashboard -->
+      <div class="hero-note">
+        <p><strong>Purpose:</strong> help UrbanFit management explore operational and marketing insights through interactive visualizations.</p>
+      </div>
+    </header>
+
+    <!-- This section contains the filters -->
+    <section class="controls-card">
+
+      <!-- Filter 1: month -->
+      <div class="control-group">
+        <label for="monthFilter">Flow Month</label>
+        <select id="monthFilter"></select>
+      </div>
+
+      <!-- Filter 2: membership tier -->
+      <div class="control-group">
+        <label for="tierFilter">Membership Tier</label>
+        <select id="tierFilter"></select>
+      </div>
+
+      <!-- Filter 3: home club -->
+      <div class="control-group">
+        <label for="clubFilter">Home Club</label>
+        <select id="clubFilter"></select>
+      </div>
+
+      <!-- Reset button to clear all filters -->
+      <div class="control-group button-group">
+        <label>&nbsp;</label>
+        <button id="resetFilters">Reset Filters</button>
+      </div>
+    </section>
+
+    <!-- These are the three insight summary boxes -->
+    <section class="insights-grid">
+
+      <!-- Insight box 1 -->
+      <article class="insight-card">
+        <span class="insight-label">Movement hub</span>
+        <strong id="hubInsight">Loading...</strong>
+      </article>
+
+      <!-- Insight box 2 -->
+      <article class="insight-card">
+        <span class="insight-label">Member segment</span>
+        <strong id="segmentInsight">Loading...</strong>
+      </article>
+
+      <!-- Insight box 3 -->
+      <article class="insight-card">
+        <span class="insight-label">Class trend</span>
+        <strong id="trendInsight">Loading...</strong>
+      </article>
+    </section>
+
+    <!-- Main area where all charts will appear -->
+    <main class="dashboard-grid">
+
+      <!-- Chart 1: Movement Map -->
+      <section class="viz-card wide-card">
+        <div class="card-header">
+          <div>
+            <h2>1. Member Movement Map</h2>
+            <p>Top movement flows between clubs. Line width shows flow volume.</p>
+          </div>
+
+          <!-- Small legend for the map -->
+          <div class="legend-inline">
+            <span class="legend-dot dot-flow"></span> Flow
+            <span class="legend-dot dot-club"></span> Club
+          </div>
+        </div>
+
+        <!-- D3 will draw the movement map inside this div -->
+        <div id="movementMap" class="viz"></div>
+      </section>
+
+      <!-- Chart 2: Parallel Coordinates Plot -->
+      <section class="viz-card">
+        <div class="card-header">
+          <div>
+            <h2>2. Parallel Coordinates Plot</h2>
+            <p>Compare member characteristics across selected groups.</p>
+          </div>
+        </div>
+
+        <!-- D3 will draw the parallel coordinates chart here -->
+        <div id="parallelPlot" class="viz"></div>
+      </section>
+
+      <!-- Chart 3: Streamgraph -->
+      <section class="viz-card">
+        <div class="card-header">
+          <div>
+            <h2>3. Streamgraph</h2>
+            <p>Participation trends for major fitness classes over time.</p>
+          </div>
+        </div>
+
+        <!-- D3 will draw the streamgraph here -->
+        <div id="streamgraph" class="viz"></div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Tooltip box used when user hovers over chart parts -->
+  <div id="tooltip" class="tooltip hidden"></div>
+
+  <!-- D3.js library -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+
+  <!-- Your custom JavaScript file -->
+  <script src="script.js"></script>
+</body>
+</html>

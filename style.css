@@ -1,0 +1,310 @@
+/* These are the main colors and reusable design values for the dashboard */
+:root {
+  --bg: #f4f7fb;
+  --card: #ffffff;
+  --ink: #16324f;
+  --muted: #60758a;
+  --line: #dbe4ec;
+  --accent: #2563eb;
+  --accent-2: #14b8a6;
+  --accent-3: #f59e0b;
+  --danger: #ef4444;
+  --shadow: 0 10px 24px rgba(20, 32, 50, 0.08);
+}
+
+/* This makes width and height easier to control */
+* {
+  box-sizing: border-box;
+}
+
+/* Main page styling */
+body {
+  margin: 0;
+  font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(180deg, #f6f9fc 0%, #eef4fb 100%);
+  color: var(--ink);
+}
+
+/* Main wrapper around the whole dashboard */
+.page-shell {
+  max-width: 1450px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Top heading section layout */
+.hero {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: stretch;
+  margin-bottom: 20px;
+}
+
+/* Main title styling */
+.hero h1 {
+  margin: 6px 0 10px;
+  font-size: 2rem;
+  line-height: 1.15;
+}
+
+/* Small heading above the main title */
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+/* These texts all use the lighter muted color */
+.subtitle,
+.hero-note p,
+.card-header p {
+  color: var(--muted);
+  margin: 0;
+}
+
+/* Small purpose box on the top right */
+.hero-note {
+  min-width: 260px;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  padding: 16px 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Shared card styling used in filters, charts, and insight boxes */
+.controls-card,
+.viz-card,
+.insight-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+}
+
+/* Filter section layout */
+.controls-card {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(160px, 1fr));
+  gap: 16px;
+  padding: 18px;
+  margin-bottom: 20px;
+}
+
+/* Labels above dropdowns */
+.control-group label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+/* Shared style for dropdowns and button */
+select,
+button {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid #cfd9e3;
+  background: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+/* Button styling */
+button {
+  background: var(--ink);
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  font-weight: 600;
+}
+
+/* Small hover effect for button */
+button:hover {
+  opacity: 0.92;
+}
+
+/* Layout for the 3 insight summary boxes */
+.insights-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+/* Spacing inside each insight box */
+.insight-card {
+  padding: 18px;
+}
+
+/* Small heading inside insight boxes */
+.insight-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+/* Main insight text */
+.insight-card strong {
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+/* Main chart area layout */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+/* This makes one chart take full width */
+.wide-card {
+  grid-column: span 2;
+}
+
+/* Padding inside chart cards */
+.viz-card {
+  padding: 18px;
+}
+
+/* Top area inside each chart card */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+/* Chart titles */
+.card-header h2 {
+  margin: 0 0 6px;
+  font-size: 1.1rem;
+}
+
+/* General chart area size */
+.viz {
+  width: 100%;
+  min-height: 400px;
+}
+
+/* Specific size for movement map */
+#movementMap {
+  min-height: 450px;
+}
+
+/* Specific size for the other 2 charts */
+#parallelPlot,
+#streamgraph {
+  min-height: 440px;
+}
+
+/* Makes SVG charts responsive */
+svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Used for labels inside charts */
+.axis-label {
+  fill: var(--muted);
+  font-size: 12px;
+}
+
+/* Small legend text */
+.legend-inline {
+  font-size: 0.82rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Small colored dots in the legend */
+.legend-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  margin: 0 6px 0 10px;
+}
+
+/* Removes extra left margin from first legend dot */
+.legend-dot:first-child {
+  margin-left: 0;
+}
+
+/* Blue dot for flow */
+.dot-flow {
+  background: var(--accent);
+}
+
+/* Green dot for club */
+.dot-club {
+  background: var(--accent-2);
+}
+
+/* Tooltip box styling */
+.tooltip {
+  position: fixed;
+  z-index: 9999;
+  pointer-events: none;
+  background: rgba(15, 23, 42, 0.96);
+  color: #fff;
+  padding: 10px 12px;
+  border-radius: 10px;
+  font-size: 0.84rem;
+  line-height: 1.45;
+  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.22);
+  max-width: 280px;
+}
+
+/* This hides the tooltip when not needed */
+.hidden {
+  display: none;
+}
+
+/* Small note text inside charts */
+.note-text {
+  font-size: 0.82rem;
+  fill: var(--muted);
+}
+
+/* Message shown if there is no data */
+.empty-state {
+  color: var(--muted);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 1100px) {
+  .dashboard-grid,
+  .insights-grid,
+  .controls-card,
+  .hero {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  /* On small screen, wide card becomes normal width */
+  .wide-card {
+    grid-column: span 1;
+  }
+
+  .hero {
+    display: grid;
+  }
+}
