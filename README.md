@@ -96,14 +96,16 @@ The dashboard is designed to answer three key business questions:
 ---
 
 ## Project Structure
+```
 urbanfit-dashboard/
 ├── index.html
 ├── script.js
 ├── style.css
 └── data/
-├── class_streamgraph.csv
-├── club_flows_with_coordinates.csv
-└── member_metrics.csv
+    ├── class_streamgraph.csv
+    ├── club_flows_with_coordinates.csv
+    └── member_metrics.csv
+```
 
 ---
 
